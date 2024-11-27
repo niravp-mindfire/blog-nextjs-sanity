@@ -24,7 +24,8 @@ export default async function HomePage() {
       "author": author->name
     }
   `);
-
+    console.log(posts, "=============posts");
+    
   return (
     <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-bold text-gray-800 text-center mb-12">
