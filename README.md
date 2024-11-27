@@ -1,7 +1,3 @@
-Here’s an example of a comprehensive `README.md` file that you can use for your project repository. This assumes that your repository contains both the *Sanity Studio* (`blog-nextjs-sanity`) and *Next.js Frontend* (`my-blog`) projects.
-
----
-
 # Blog Project with Next.js & Sanity
 
 This repository contains two projects:
