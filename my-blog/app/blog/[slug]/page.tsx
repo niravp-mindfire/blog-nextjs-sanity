@@ -3,6 +3,7 @@ import { client, urlFor } from "@/lib/sanity";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+// Define your BlogPost type
 type BlogPost = {
   _id: string;
   title: string;
@@ -13,7 +14,7 @@ type BlogPost = {
   author: { name: string };
 };
 
-const PortableTextComponents = {
+const PortableTextComponents: any = {
   types: {
     image: ({ value }: { value: any }) => (
       <Image
@@ -50,14 +51,10 @@ const PortableTextComponents = {
   },
 };
 
-export default async function BlogPost({
-  params,
-}: {
-  params: { slug: string };
-}) {
+// Refactor to use async function in the Server Component
+export default async function BlogPost({ params }: any) {
   const post: BlogPost | null = await client.fetch(
-    `
-    *[_type == "post" && slug.current == $slug][0] {
+    `*[_type == "post" && slug.current == $slug][0] {
       _id,
       title,
       slug,
@@ -65,8 +62,7 @@ export default async function BlogPost({
       body,
       publishedAt,
       author -> { name }
-    }
-  `,
+    }`,
     { slug: params.slug }
   );
 
